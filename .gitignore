@@ -1,0 +1,63 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv/
+.env
+
+# Model weights / checkpoints -- see checkpoints/README.md
+checkpoints/*
+!checkpoints/README.md
+!checkpoints/.gitkeep
+
+# GPT-2 downloaded checkpoints (TensorFlow format)
+gpt2/
+gpt2_checkpoints/
+*.ckpt*
+model.ckpt.data-*
+model.ckpt.index
+model.ckpt.meta
+
+# General model weight file types
+*.pt
+*.pth
+*.safetensors
+*.bin
+output.bin
+
+# Experiment tracking
+experiments/mlruns/
+experiments/*.db
+mlruns/
+mlflow.db
+*.db
+
+# Data
+data/
+*.csv
+*.jsonl
+data/raw/
+!03_attention_variants/benchmarks/results.csv
+02_tiny_llm/data/TinyStoriesV2-GPT4-train.txt
+02_tiny_llm/data/TinyStoriesV2-GPT4-valid.txt
+
+# Training data — download via download_dataset(), never commit
+llm-from-scratch/02_tiny_llm/data/*.txt
+extra/pytorch-basics/projects/flower_classification/**/jpg/
+extra/pytorch-basics/projects/flower_classification/**/*.tgz
+extra/pytorch-basics/projects/flower_classification/**/*.mat
+
+# Flower (federated learning) artifacts
+.flower_data
+flower_data/
+flower_data/jpg
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

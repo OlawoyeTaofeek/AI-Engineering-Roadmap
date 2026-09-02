@@ -1,0 +1,4 @@
+emb_dim: 512
+n_heads: 8
+n_layers: 8
+context_length: 512

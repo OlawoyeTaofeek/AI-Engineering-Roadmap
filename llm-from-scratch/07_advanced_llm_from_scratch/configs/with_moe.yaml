@@ -1,0 +1,3 @@
+use_moe: true
+num_experts: 8
+top_k: 2

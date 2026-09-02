@@ -1,0 +1,61 @@
+[project]
+name = "ai-engineeringroadmap"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "OlawoyeTaofeek", email = "habephe21@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.125.0",
+    "chainlit>=2.12.0",
+    "chromadb",
+    "datasets",
+    "faiss-cpu",
+    "fastai",
+    "fastapi",
+    "gradio",
+    "huggingface-hub",
+    "ipykernel>=7.3.0",
+    "langchain",
+    "langchain-anthropic>=0.3.22",
+    "langchain-chroma",
+    "langchain-core",
+    "langchain-huggingface>=0.3.1",
+    "langchain-ollama",
+    "langchain-openai",
+    "langchain-pinecone",
+    "langchain-qdrant",
+    "langchain-weaviate",
+    "langgraph",
+    "langsmith",
+    "matplotlib",
+    "mlflow",
+    "numpy",
+    "openai>=2.54.0",
+    "pandas",
+    "peft",
+    "pillow>=12.3.0",
+    "pydantic",
+    "pymupdf",
+    "pytest",
+    "qdrant-client",
+    "requests",
+    "scikit-learn",
+    "streamlit",
+    "tiktoken",
+    "torch",
+    "torchvision>=0.28.0",
+    "tqdm",
+    "transformers",
+    "trl==0.9.6",
+    "uvicorn",
+]
+
+[project.scripts]
+ai-engineeringroadmap = "ai_engineeringroadmap:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"

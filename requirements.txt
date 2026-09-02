@@ -1,0 +1,48 @@
+# Pin exact versions -- LLM tooling (esp. transformers, vllm) moves fast
+# and breaks compatibility often. Regenerate with `pip freeze` after any
+# intentional upgrade, and note the change in ROADMAP.md.
+
+torch
+huggingface_hub
+numpy
+requests
+tiktoken
+transformers
+datasets
+mlflow
+matplotlib
+pandas
+tqdm
+pytest
+fastapi
+uvicorn
+pydantic
+gradio
+scikit-learn
+peft
+pymupdf
+langchain
+langgraph
+langchain-openai
+langchain-ollama
+langchain-core
+chromadb
+faiss-cpu
+langchain_chroma
+langchain_pinecone
+langchain_weaviate
+langchain-qdrant
+qdrant-client
+langsmith
+streamlit
+chainlit
+langchain-huggingface 
+huggingface_hub
+openai
+anthropic
+langchain-anthropic
+
+# Optional / stage-specific -- install as needed rather than by default
+# vllm==0.6.0          # 11_serving/vllm_deployment
+# deepspeed==0.15.1    # 05_scaling_up, large-scale training
+trl==0.9.6           # 10_rlhf_ppo, if not implementing PPO manually
