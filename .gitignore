@@ -48,6 +48,7 @@ data/raw/
 
 # Training data — download via download_dataset(), never commit
 llm-from-scratch/02_tiny_llm/data/*.txt
+llm-from-scratch/gpt2
 extra/pytorch-basics/projects/flower_classification/**/jpg/
 extra/pytorch-basics/projects/flower_classification/**/*.tgz
 extra/pytorch-basics/projects/flower_classification/**/*.mat

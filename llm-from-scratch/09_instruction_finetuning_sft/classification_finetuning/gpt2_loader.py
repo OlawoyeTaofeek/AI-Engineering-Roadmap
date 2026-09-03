@@ -35,6 +35,8 @@ import numpy as np
 import requests
 import tensorflow as tf
 from tqdm import tqdm
+import torch
+import torch.nn as nn
 
 logger = logging.getLogger(__name__)
 
