@@ -7,9 +7,9 @@ from pathlib import Path
 def download_and_unzip_spam_data(
     primary_url: str = "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
     backup_url: str = "https://f001.backblazeb2.com/file/LLMs-from-scratch/sms%2Bspam%2Bcollection.zip",
-    zip_path: str = "sms_spam_collection.zip",
-    extracted_path: str = "sms_spam_collection",
-    data_file_path: str = "sms_spam_collection/SMSSpamCollection.tsv",
+    zip_path: str = "classification_finetuning/sms_spam_collection.zip",
+    extracted_path: str = "classification_finetuning/sms_spam_collection",
+    data_file_path: str = "classification_finetuning/sms_spam_collection/SMSSpamCollection.tsv",
 ) -> Path:
     """
     Download and extract the SMS Spam Collection dataset.
