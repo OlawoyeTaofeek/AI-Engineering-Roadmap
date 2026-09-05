@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/llm-from-scratch-banner.svg" alt="LLM From Scratch — Foundations to Serving" width="100%">
+  <img src="./assets/banner.svg" alt="LLM From Scratch — Foundations to Serving" width="100%">
 </p>
 
 <p align="center">
