@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/02_banner.svg" alt="Tiny LLM — GPT-2 124M, built from raw tensors" width="100%">
+  <img src="llm-from-scratch/assets/02_banner.svg" alt="Tiny LLM — GPT-2 124M, built from raw tensors" width="100%">
 </p>
 
 <p align="center">
