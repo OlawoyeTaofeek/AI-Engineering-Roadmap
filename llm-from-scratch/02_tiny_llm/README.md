@@ -1,3 +1,14 @@
+<p align="center">
+  <img src="./assets/02_banner.svg" alt="Tiny LLM — GPT-2 124M, built from raw tensors" width="100%">
+</p>
+
+<p align="center">
+  <img alt="stage" src="https://img.shields.io/badge/stage-1%20of%208-2563eb?style=flat-square">
+  <img alt="params" src="https://img.shields.io/badge/params-124M-2563eb?style=flat-square">
+  <img alt="tested" src="https://img.shields.io/badge/tested-pytest%20%2B%20notebooks-2563eb?style=flat-square">
+  <img alt="tracking" src="https://img.shields.io/badge/tracking-MLflow-2563eb?style=flat-square">
+</p>
+
 # 02 · Tiny LLM — Stage 1: LLM Architecture
 
 > Everything needed to go from raw text on disk to a talking, sampling,
