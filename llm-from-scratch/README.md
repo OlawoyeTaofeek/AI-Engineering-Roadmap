@@ -3,143 +3,216 @@
 </p>
 
 <p align="center">
-  <a href="./ROADMAP.md">
-    <img alt="roadmap" src="https://img.shields.io/badge/roadmap-8%20stage%20mastery%20path-2563eb?style=for-the-badge">
-  </a>
-  <img alt="modules" src="https://img.shields.io/badge/modules-15-2563eb?style=for-the-badge">
-  <img alt="status" src="https://img.shields.io/badge/status-active%20build-16a34a?style=for-the-badge">
-  <a href="./LICENSE">
-    <img alt="license" src="https://img.shields.io/badge/license-MIT-111827?style=for-the-badge">
-  </a>
+  <strong>Understand LLMs by building the machinery yourself.</strong>
 </p>
 
 <p align="center">
-  <strong>Build the model. Understand the mathematics. Reproduce the systems. Then use the abstractions.</strong>
+  A free, open-source, implementation-first course for going from tensors and tokenization
+  to pretraining, modern Transformer architectures, post-training, alignment, evaluation,
+  quantization, and inference.
 </p>
 
 <p align="center">
-  An open, implementation-first learning path for understanding Large Language Models from tensors and attention
-  all the way through pretraining, post-training, alignment, evaluation, quantization, and serving.
+  <a href="#-the-journey">Journey</a> ·
+  <a href="#-what-you-will-build">What you'll build</a> ·
+  <a href="#-curriculum">Curriculum</a> ·
+  <a href="#-how-to-use-this-repository">How to learn</a> ·
+  <a href="#-contributing">Contributing</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/PyTorch-implementation--first-EE4C2C?style=flat-square&logo=pytorch&logoColor=white">
+  <img src="https://img.shields.io/badge/LLM-learning%20resource-open%20source-2563EB?style=flat-square">
+  <img src="https://img.shields.io/badge/license-MIT-111827?style=flat-square">
 </p>
 
 ---
 
-# 🧠 LLM From Scratch
+# LLM From Scratch
 
-> **A free, open learning resource for people who don't want to merely use LLMs — they want to understand how they work.**
+Most people meet large language models at the level of an API:
 
-Modern LLM development can feel like a wall of abstractions:
-
-```text
-transformers → Trainer → PEFT → TRL → vLLM → quantization → deployment
+```python
+response = model.generate(...)
 ```
 
-Those tools are incredibly useful when the goal is to **ship a product**.
+That is useful.
 
-But if the goal is to **understand the technology**, they can hide the most important question:
+It is not the same as understanding the model.
 
-> **What is actually happening underneath the abstraction?**
+This repository is built around a different question:
 
-This repository takes the opposite approach.
+> **What if, instead of starting with the abstraction, we built enough of the underlying system to understand why the abstraction exists?**
 
-We start with the mathematical and computational foundations, implement important components ourselves, test them, and only then connect them to the libraries and systems used in production.
+You will work from the inside out:
 
 ```text
-UNDERSTAND
-    ↓
-IMPLEMENT
-    ↓
-TEST
-    ↓
-COMPARE WITH PRODUCTION
-    ↓
-SCALE
-    ↓
-TRAIN
-    ↓
-ALIGN
-    ↓
-EVALUATE
-    ↓
-QUANTIZE
-    ↓
-SERVE
+Tensors
+  ↓
+Tokenization
+  ↓
+Embeddings
+  ↓
+Attention
+  ↓
+Transformer
+  ↓
+Language Model
+  ↓
+Pretraining
+  ↓
+Post-training
+  ↓
+Alignment
+  ↓
+Evaluation
+  ↓
+Quantization
+  ↓
+Inference & Serving
 ```
 
-The goal is not to build the biggest model.
+The objective is **not** to reproduce the largest model in the world.
 
-**The goal is to make the entire LLM stack understandable.**
+The objective is to make the important ideas behind modern LLMs small enough to inspect, implement, test, break, fix, and understand.
 
 ---
 
-## 🌍 Why this resource exists
+## Why build an LLM from scratch?
 
-The LLM ecosystem moves incredibly fast.
+Modern frameworks are excellent at hiding complexity.
 
-A learner can easily jump from:
+That is exactly what makes them powerful.
 
-- "What is a Transformer?"
-- to "How do I fine-tune Llama?"
-- to "How do I deploy with vLLM?"
-
-without ever developing a strong mental model of the machinery underneath.
-
-That creates a dangerous gap:
-
-**you can operate the tools without understanding the system.**
-
-This project is designed to close that gap.
-
-It is a public learning resource built around a simple principle:
-
-> ### If a component is important enough to learn, build a small version of it before hiding it behind a library.
-
-You will encounter the same idea repeatedly:
-
-```mermaid
-flowchart LR
-    A["📐 Understand<br/>mathematics & intuition"]
-    B["🔨 Build<br/>from first principles"]
-    C["🧪 Test<br/>against known behavior"]
-    D["🏭 Compare<br/>with production implementations"]
-    E["🚀 Scale<br/>the idea into a real system"]
-
-    A --> B --> C --> D --> E
-    D -. "What did the abstraction buy us?" .-> A
-```
+But abstraction has a cost: once you call a highly optimized component, it becomes easy to forget what problem it is solving.
 
 For example:
 
 ```text
-Hand-rolled attention
-        ↓
-torch.nn.MultiheadAttention
-        ↓
-Understand the abstraction
-        ↓
-Understand the trade-offs
-        ↓
-Know when and why to use it
+                 PRODUCTION
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+   Hugging Face             vLLM / GGUF
+          │                     │
+          └──────────┬──────────┘
+                     │
+              "It just works."
+                     │
+                     ▼
+              ┌─────────────┐
+              │  THE BLACK  │
+              │    BOX      │
+              └─────────────┘
 ```
 
-This philosophy applies throughout the repository.
+This project deliberately opens that box.
+
+Instead of beginning with:
+
+```python
+from transformers import AutoModelForCausalLM
+```
+
+the learning path asks you to first understand things such as:
+
+- What exactly is a token?
+- Why do we need embeddings?
+- What are `Q`, `K`, and `V`?
+- Why does causal masking exist?
+- Why divide attention scores by `sqrt(d_k)`?
+- Why do residual connections help?
+- Why normalize?
+- Why does the model predict the *next* token?
+- What is actually optimized during pretraining?
+- Why does inference need a KV cache?
+- Why do modern architectures use RoPE, RMSNorm, SwiGLU and GQA?
+- Why do DPO and PPO solve different optimization problems?
+- What does quantization trade for memory and speed?
+- What does an inference server actually have to do?
+
+Once those questions become concrete, production libraries stop looking magical.
+
+They become **engineering abstractions over mechanisms you understand**.
 
 ---
 
-# 🗺️ The LLM Mastery Path
+# 🎯 The philosophy
 
-The repository follows an eight-stage learning path.
+The repository follows one rule throughout:
+
+> ### **Understand → Implement → Test → Compare → Optimize**
+
+Every major idea should pass through this cycle.
+
+### 1. Understand
+
+Start with the intuition, equations, shapes, assumptions, and purpose.
+
+### 2. Implement
+
+Build the smallest useful version yourself.
+
+No unnecessary framework magic.
+
+### 3. Test
+
+Check shapes, numerical behavior, edge cases, gradients, and known reference behavior.
+
+### 4. Compare
+
+Only then look at the mature implementation.
+
+Ask:
+
+> **What did the production implementation change, and why?**
+
+### 5. Optimize
+
+Once correctness is understood, study the engineering required to make it faster, smaller, distributed, and deployable.
+
+This distinction is important:
+
+```text
+                LEARNING IMPLEMENTATION
+                         │
+                         ▼
+                "Can I explain it?"
+                         │
+                         ▼
+                "Can I implement it?"
+                         │
+                         ▼
+                "Can I prove it works?"
+                         │
+                         ▼
+                PRODUCTION IMPLEMENTATION
+                         │
+                         ▼
+                "How does it scale?"
+```
+
+The repository is therefore not anti-framework.
+
+It is **anti-black-box learning**.
+
+---
+
+# 🧭 The journey
+
+The core curriculum follows the lifecycle of a language model.
 
 ```mermaid
 flowchart TD
-    A["01 · LLM ARCHITECTURE<br/><sub>How a language model is built</sub>"]
-    B["02 · PRETRAINING<br/><sub>How the model learns from massive text</sub>"]
-    C["03 · POST-TRAINING DATASETS<br/><sub>How raw model behavior becomes useful data</sub>"]
-    D["04 · SUPERVISED FINE-TUNING<br/><sub>Teach the model to follow instructions</sub>"]
-    E["05 · PREFERENCE ALIGNMENT<br/><sub>Optimize behavior toward preferences</sub>"]
-    F["06 · EVALUATION<br/><sub>Measure what actually improved</sub>"]
-    G["07 · QUANTIZATION<br/><sub>Make models smaller and cheaper</sub>"]
-    H["08 · NEW TRENDS<br/><sub>Explore where the field is going</sub>"]
+    A["01 · ARCHITECTURE<br/>Understand the Transformer"]
+    B["02 · PRETRAINING<br/>Teach the model language"]
+    C["03 · POST-TRAINING DATA<br/>Create instruction data"]
+    D["04 · SFT<br/>Teach instruction following"]
+    E["05 · PREFERENCE ALIGNMENT<br/>Optimize behavior"]
+    F["06 · EVALUATION<br/>Measure capability & quality"]
+    G["07 · QUANTIZATION<br/>Reduce memory & inference cost"]
+    H["08 · NEW DIRECTIONS<br/>Explore modern extensions"]
 
     A --> B --> C --> D --> E --> F --> G --> H
 
@@ -153,83 +226,134 @@ flowchart TD
     style H fill:#60a5fa,stroke:#1d4ed8,stroke-width:2px,color:#0f172a
 ```
 
-### The important idea
+These stages are connected.
 
-The stages are not isolated topics.
+A tokenizer affects the data.
 
-They form a dependency chain:
+The data affects pretraining.
+
+Pretraining determines the starting point for post-training.
+
+Post-training determines the behavior you evaluate.
+
+Evaluation tells you whether an intervention helped.
+
+Quantization changes how the resulting model can be served.
+
+The entire project is therefore one continuous system rather than a collection of unrelated tutorials.
+
+---
+
+# 🏗️ What you will build
+
+By working through the repository, you progressively move from individual mathematical operations to a complete language-model lifecycle.
+
+### Foundations
 
 ```text
-Architecture
-     ↓
-Pretraining
-     ↓
-Post-training data
-     ↓
+Tensor operations
+      ↓
+Autograd / neural-network fundamentals
+      ↓
+Text → tokens
+      ↓
+Tokens → embeddings
+```
+
+### Model
+
+```text
+Embeddings
+    ↓
+Positional information
+    ↓
+Attention
+    ↓
+Feed-forward network
+    ↓
+Residual connections + normalization
+    ↓
+Transformer blocks
+    ↓
+GPT-style language model
+```
+
+### Training
+
+```text
+Dataset
+   ↓
+Tokenization
+   ↓
+Context windows
+   ↓
+Next-token prediction
+   ↓
+Loss
+   ↓
+Backpropagation
+   ↓
+Optimizer
+   ↓
+Learning-rate schedule
+   ↓
+Checkpoint
+```
+
+### Post-training
+
+```text
+Pretrained model
+      ↓
+Instruction data
+      ↓
 SFT
-     ↓
-Preference alignment
+      ↓
+Preference data
+      ↓
+DPO / reward modeling / PPO
+      ↓
+Aligned model
+```
+
+### Deployment
+
+```text
+Trained model
      ↓
 Evaluation
      ↓
 Quantization
      ↓
-New research directions
+Inference runtime
+     ↓
+API / batching / streaming
+     ↓
+Real application
 ```
 
-If you understand the earlier layer, the later layer becomes easier to reason about.
+The end goal is not one impressive notebook.
 
-If something near the top feels mysterious, **go back down the stack.**
+It is the ability to **trace the whole system**.
 
 ---
 
-# 🏗️ How the repository is organized
+# 🔬 Curriculum
 
-The repository contains **15 modules**, grouped around the eight-stage mastery path.
+## 01 — LLM Architecture
 
-```mermaid
-flowchart LR
-    E["00 · Explanation"]
-    P["01 · Papers"]
+### The question
 
-    T["02 · Tiny LLM"]
-    AV["03 · Attention Variants"]
-    MA["04 · Modern Architecture"]
+> **What is inside a GPT-style language model?**
 
-    SU["05 · Scaling Up"]
-    MOE["06 · Mixture of Experts"]
-    ADV["07 · Advanced LLM"]
+The first part builds the model from its smallest meaningful pieces.
 
-    PTD["08 · Post-Training Datasets"]
-    SFT["09 · SFT"]
-    PA["10 · Preference Alignment"]
+### Core concepts
 
-    EV["11 · Evaluation"]
-    SRV["12 · Serving"]
-    Q["13 · Quantization"]
-    NT["14 · New Trends"]
-
-    E --> P --> T
-    T --> AV --> MA --> SU
-    SU --> MOE --> ADV --> PTD
-    PTD --> SFT --> PA --> EV
-    EV --> SRV --> Q --> NT
-
-    NT -.-> P2["Part 2 · AI Engineering Roadmap"]
-```
-
-> **Note:** Serving sits alongside the core eight-stage learning path as the production bridge between understanding a model and actually putting it behind an interface. It is intentionally kept in the repository because a model is much more useful when you understand how it reaches a real user.
-
----
-
-# 📚 What you will learn
-
-## Stage 1 — LLM Architecture
-
-**Question:** *What is actually inside a language model?*
-
-You will build the foundations of a GPT-style Transformer:
-
+- tokenization
+- vocabulary and token IDs
+- embeddings
+- positional information
 - self-attention
 - causal attention
 - multi-head attention
@@ -237,178 +361,280 @@ You will build the foundations of a GPT-style Transformer:
 - feed-forward networks
 - residual connections
 - Transformer blocks
-- token embeddings
-- positional representations
-- model configuration
 - language-model heads
 - autoregressive generation
-- tokenization
-- sampling
+- decoding and sampling
 
-The first major milestone is a working GPT-style model built from the underlying components rather than importing a complete model class.
-
-### Architecture progression
+### Architecture
 
 ```text
-Tokens
-  ↓
+Input text
+    │
+    ▼
+Tokenizer
+    │
+    ▼
+Token IDs
+    │
+    ▼
 Token Embeddings
-  ↓
+    │
+    ▼
 Positional Information
-  ↓
-Transformer Block × N
-  ├── Normalization
-  ├── Multi-Head Attention
-  ├── Residual Connection
-  ├── Normalization
-  ├── Feed-Forward Network
-  └── Residual Connection
-  ↓
+    │
+    ▼
+┌──────────────────────────────┐
+│       Transformer Block      │
+│                              │
+│   Normalization              │
+│       ↓                      │
+│   Multi-Head Attention       │
+│       ↓                      │
+│   Residual Connection        │
+│       ↓                      │
+│   Normalization              │
+│       ↓                      │
+│   Feed-Forward Network       │
+│       ↓                      │
+│   Residual Connection        │
+└──────────────────────────────┘
+              × N
+    │
+    ▼
 Final Normalization
-  ↓
+    │
+    ▼
 Language-Model Head
-  ↓
-Next-token probabilities
-  ↓
+    │
+    ▼
+Logits
+    │
+    ▼
 Sampling
-  ↓
-Generated text
+    │
+    ▼
+Next token
+```
+
+The initial GPT implementation is intentionally small enough to read from top to bottom.
+
+---
+
+## 02 — Pretraining
+
+### The question
+
+> **How does a Transformer become a language model?**
+
+A model architecture is only a structure.
+
+Pretraining gives that structure useful parameters.
+
+This section covers:
+
+- dataset preparation
+- tokenized training corpora
+- context windows
+- next-token prediction
+- cross-entropy loss
+- optimizers
+- learning-rate schedules
+- gradient accumulation
+- mixed precision
+- checkpointing
+- experiment tracking
+- distributed training
+- DDP
+- FSDP
+- scaling-law reasoning
+- mixture-of-experts
+- routing and load balancing
+
+The mental model becomes:
+
+```text
+Large corpus
+     ↓
+Clean / filter / tokenize
+     ↓
+Training examples
+     ↓
+Transformer
+     ↓
+Next-token loss
+     ↓
+Gradient computation
+     ↓
+Parameter update
+     ↓
+Repeat millions / billions of times
 ```
 
 ---
 
-## Stage 2 — Pretraining
+## 03 — Post-Training Data
 
-**Question:** *How does a model learn language from large-scale data?*
+### The question
 
-Topics include:
+> **How do we create data that teaches a pretrained model to behave usefully?**
 
-- data preparation
-- training objectives
-- training loops
-- learning-rate scheduling
-- mixed precision
-- gradient accumulation
-- distributed training
-- DDP
-- FSDP
-- scaling laws
-- monitoring
-- mixture-of-experts
-- routing
-- load-balancing loss
+Pretraining data teaches broad statistical structure.
 
-The purpose is to move from:
-
-> **"I built a Transformer."**
-
-to:
-
-> **"I understand how that Transformer becomes a pretrained model."**
-
----
-
-## Stage 3 — Post-Training Datasets
-
-**Question:** *How do we create useful data for teaching a pretrained model to follow instructions?*
+Post-training data introduces a different kind of supervision.
 
 Topics include:
 
 - chat templates
+- conversation formatting
 - loss masking
 - synthetic instruction generation
-- self-instruct style data
+- self-instruct style generation
 - data enhancement
 - paraphrasing
 - difficulty variation
-- quality filtering
+- response quality filtering
 
-This stage is deliberately treated as a first-class part of LLM development.
+The key lesson:
 
-**Good post-training data is not an afterthought.**
+> **Data is part of the model.**
+
+Changing the data distribution changes what the training process can teach the model.
 
 ---
 
-## Stage 4 — Supervised Fine-Tuning
+## 04 — Supervised Fine-Tuning
 
-**Question:** *How do we teach the pretrained model to follow instructions?*
+### The question
 
-Topics include:
+> **How do we turn a pretrained language model into an instruction-following model?**
 
-- prompt formatting
-- response formatting
-- loss masking
-- supervised fine-tuning
-- training scripts
-- evaluation hooks
-- checkpoint comparison
-
-The conceptual transition is:
+The pipeline becomes:
 
 ```text
 Pretrained model
+      +
+Instruction / response pairs
       ↓
-Instruction dataset
-      ↓
-Supervised training
+Supervised fine-tuning
       ↓
 Instruction-following model
 ```
 
+You will study:
+
+- prompt formatting
+- response formatting
+- loss masking
+- SFT training
+- checkpointing
+- evaluation integration
+- fine-tuning experiments
+
+The important distinction is between **learning language** and **learning how to respond to instructions**.
+
 ---
 
-## Stage 5 — Preference Alignment
+## 05 — Preference Alignment
 
-**Question:** *How do we make model behavior better according to human or preference signals?*
+### The question
 
-Topics include:
+> **How do we optimize a model toward preferred behavior?**
+
+Human preference is not the same thing as next-token prediction.
+
+This section explores the machinery introduced to bridge that gap:
 
 - preference datasets
 - reward models
 - rejection sampling
-- Direct Preference Optimization (DPO)
-- Proximal Policy Optimization (PPO)
+- Direct Preference Optimization
+- Proximal Policy Optimization
 - rollout collection
-- PPO vs DPO
+- preference objectives
+- PPO vs. DPO
 
-The goal is to understand not just **how** these methods are used, but the optimization problem they are trying to solve.
+Conceptually:
+
+```text
+Prompt
+  │
+  ├── Response A ──┐
+  │                ├── Preference signal
+  └── Response B ──┘
+          │
+          ▼
+   Alignment objective
+          │
+          ▼
+   Updated model
+```
+
+The objective is to understand the optimization, not simply memorize the names of alignment algorithms.
 
 ---
 
-## Stage 6 — Evaluation
+## 06 — Evaluation
 
-**Question:** *How do we know whether the model actually improved?*
+### The question
 
-Topics include:
+> **How do we know whether the model actually got better?**
 
-- automated benchmarks
+Evaluation is treated as part of model development, not as a final checkbox.
+
+You will explore:
+
 - perplexity
 - multiple-choice evaluation
-- human A/B evaluation
+- automated benchmarks
+- human A/B comparison
 - model-based evaluation
 - LLM-as-judge
-- feedback aggregation
+- feedback signals
 - checkpoint comparison
 
-A model that produces impressive examples is not necessarily a better model.
-
-Evaluation turns:
+The core discipline is:
 
 ```text
-"It feels better."
+Change something
+      ↓
+Measure it
+      ↓
+Compare against a baseline
+      ↓
+Decide whether the change helped
 ```
 
-into:
+A compelling demo is evidence of possibility.
 
-```text
-"Here is the evidence."
-```
+A controlled evaluation is evidence of improvement.
 
 ---
 
-## Stage 7 — Quantization
+## 07 — Quantization
 
-**Question:** *How can we reduce model memory and inference cost while preserving useful quality?*
+### The question
+
+> **How can we make a model smaller and cheaper to run?**
+
+Model parameters are stored numerically.
+
+Quantization changes how those numbers are represented.
+
+The learning path moves from the mathematics to practical systems:
+
+```text
+Floating-point weights
+        ↓
+Quantization parameters
+        ↓
+Lower-precision representation
+        ↓
+Less memory
+        ↓
+Potentially faster / cheaper inference
+        ↓
+Possible quality loss
+```
 
 Topics include:
 
@@ -417,21 +643,26 @@ Topics include:
 - per-tensor quantization
 - per-channel quantization
 - block-wise quantization
-- GGUF / llama.cpp
+- GGUF
+- llama.cpp
 - GPTQ
 - AWQ
 - SmoothQuant
 - ZeroQuant
 
-The learning path starts with the mathematics of quantization before moving toward practical model formats and tooling.
+The important question is always:
+
+> **What did we gain, and what did we give up?**
 
 ---
 
-## Stage 8 — New Trends
+## 08 — New Directions
 
-**Question:** *What directions are extending the capabilities of modern models?*
+The final stage is deliberately exploratory.
 
-Topics include:
+LLM research does not stop at one architecture.
+
+This section provides a place to study directions such as:
 
 - model merging
 - task arithmetic
@@ -442,221 +673,302 @@ Topics include:
 - test-time compute
 - self-consistency
 - best-of-N
-- tree-search-style reasoning
+- search-based inference
 
-This section is intentionally open-ended.
+The goal is to develop a transferable habit:
 
-The field will continue to change.
-
-The purpose is to build the foundations required to **understand new ideas when they appear**, rather than memorize today's techniques.
+> **When a new technique appears, understand the problem it solves before learning the name of the technique.**
 
 ---
 
-# 🔬 The "from scratch" philosophy
-
-This repository is not trying to replace production libraries.
-
-It is trying to make you **dangerously comfortable with what those libraries are doing for you.**
-
-The learning cycle is:
-
-| Step | Goal |
-|---|---|
-| 📖 Read | Understand the idea and mathematics |
-| 🧠 Explain | Describe it without code |
-| 🔨 Implement | Build a minimal version yourself |
-| 🧪 Test | Verify behavior numerically |
-| 🔍 Inspect | Look at tensors, shapes, gradients and outputs |
-| 🏭 Compare | Compare against established implementations |
-| ⚡ Optimize | Understand what production systems change |
-| 🚀 Integrate | Put the component into the larger model |
-
-This is why a small implementation can be more educational than immediately training a billion-parameter model.
-
----
-
-# 🧩 Module map
-
-<details>
-<summary><strong>00 · Explanation</strong></summary>
-
-Conceptual write-ups covering attention, normalization, training objectives and the "why" behind the implementations that follow.
-
-</details>
-
-<details>
-<summary><strong>01 · Papers</strong></summary>
-
-An annotated reading list for the research papers referenced throughout the project.
-
-</details>
-
-<details>
-<summary><strong>02 · Tiny LLM</strong> — Stage 1</summary>
-
-The first complete GPT-style implementation.
-
-It covers data loading, multiple tokenization approaches, BPE, attention, normalization, Transformer blocks, configuration, model assembly, causal-language-model wrapping, training, pretrained GPT-2 weight loading, decoding, classification fine-tuning and testing.
-
-See [`02_tiny_llm/README.md`](./02_tiny_llm/README.md).
-
-</details>
-
-<details>
-<summary><strong>03 · Attention Variants</strong></summary>
-
-A comparative study of self-attention, causal attention, MHA, GQA, MQA, sliding-window attention and additional variants, with benchmarking and visualization planned around the implementations.
-
-</details>
-
-<details>
-<summary><strong>04 · Modern Architecture</strong></summary>
-
-RoPE, NoPE, RMSNorm, SwiGLU, KV-cache, sliding-window attention and rolling-buffer KV-cache, followed by ablation notes on the impact of architectural changes.
-
-</details>
-
-<details>
-<summary><strong>05 · Scaling Up</strong> — Stage 2</summary>
-
-Mixed precision, gradient accumulation, distributed training with DDP/FSDP, scaling-law notes, data preparation and experiment monitoring.
-
-</details>
-
-<details>
-<summary><strong>06 · Mixture of Experts</strong></summary>
-
-MoE layers, routers and load-balancing objectives.
-
-</details>
-
-<details>
-<summary><strong>07 · Advanced LLM From Scratch</strong></summary>
-
-Combines modern components into a more capable architecture:
-
-`RoPE + RMSNorm + SwiGLU + GQA + KV-cache + optional MoE`
-
-</details>
-
-<details>
-<summary><strong>08 · Post-Training Datasets</strong> — Stage 3</summary>
-
-Chat templates, loss masking, synthetic data generation, data enhancement and quality filtering.
-
-</details>
-
-<details>
-<summary><strong>09 · Instruction Fine-Tuning / SFT</strong> — Stage 4</summary>
-
-Instruction formatting, loss masking, SFT training and evaluation integration.
-
-</details>
-
-<details>
-<summary><strong>10 · Preference Alignment</strong> — Stage 5</summary>
-
-Reward modeling, preference data, rejection sampling, DPO and PPO.
-
-</details>
-
-<details>
-<summary><strong>11 · Evaluation</strong> — Stage 6</summary>
-
-Automated benchmarks, human evaluation, model-based evaluation and feedback aggregation.
-
-</details>
-
-<details>
-<summary><strong>12 · Serving</strong> — Production Bridge</summary>
-
-FastAPI inference, batching, streaming, vLLM, GGUF/Ollama, Baseten and load testing.
-
-</details>
-
-<details>
-<summary><strong>13 · Quantization</strong> — Stage 7</summary>
-
-Quantization fundamentals, GGUF/llama.cpp, GPTQ/AWQ and activation-aware methods such as SmoothQuant and ZeroQuant.
-
-</details>
-
-<details>
-<summary><strong>14 · New Trends</strong> — Stage 8</summary>
-
-Model merging, multimodal extensions, interpretability and test-time compute.
-
-</details>
-
----
-
-# 🧪 Current implementation status
-
-The detailed, continuously updated status lives in [`ROADMAP.md`](./ROADMAP.md).
-
-### Legend
-
-| Symbol | Meaning |
-|---|---|
-| ✅ | Complete |
-| 🚧 | In progress |
-| ⬚ | Planned |
-
-The roadmap intentionally distinguishes between:
-
-- a written explanation
-- a scaffold/skeleton
-- an implementation
-- tests
-- a verified end-to-end result
-
-**A file existing in the repository does not automatically mean the concept is complete.**
-
-That distinction matters for a learning resource.
-
----
-
-# 🛣️ Recommended learning routes
-
-## Route A — You already know PyTorch
-
-Start here:
-
-```text
-02_tiny_llm
-      ↓
-03_attention_variants
-      ↓
-04_modern_architecture
-      ↓
-05_scaling_up
-      ↓
-06_mixture_of_experts
-      ↓
-07_advanced_llm
-      ↓
-08_post_training_datasets
-      ↓
-09_sft
-      ↓
-10_preference_alignment
-      ↓
-11_evaluation
-      ↓
-12_serving
-      ↓
-13_quantization
-      ↓
-14_new_trends
+# 🧱 Architecture progression
+
+One of the most important ideas in this repository is that the "modern LLM" is not introduced as one giant implementation.
+
+It is assembled progressively.
+
+```mermaid
+flowchart LR
+    A["Token Embeddings"]
+    B["Self-Attention"]
+    C["Causal Mask"]
+    D["Multi-Head Attention"]
+    E["LayerNorm"]
+    F["Feed-Forward"]
+    G["Residual Paths"]
+    H["GPT Block"]
+    I["GPT Model"]
+    J["Generation"]
+
+    A --> B --> C --> D
+    D --> E --> F --> G --> H --> I --> J
 ```
 
-## Route B — You are still learning PyTorch
+Then the architecture evolves:
+
+```text
+GPT-style baseline
+       │
+       ├── RoPE
+       ├── RMSNorm
+       ├── SwiGLU
+       ├── GQA / MQA
+       ├── KV-cache
+       ├── Sliding-window attention
+       └── MoE
+              │
+              ▼
+       Modern LLM architecture
+```
+
+This progression makes architectural decisions measurable.
+
+Instead of saying:
+
+> "Llama uses RMSNorm."
+
+you can ask:
+
+> "What changes when RMSNorm replaces LayerNorm, and why might that be useful?"
+
+That is a much deeper understanding.
+
+---
+
+# ⚙️ Data is part of the system
+
+A language model is not just a neural network.
+
+A useful mental model is:
+
+```text
+                 ┌──────────────┐
+                 │    DATA      │
+                 └──────┬───────┘
+                        ↓
+                 ┌──────────────┐
+                 │ TOKENIZATION │
+                 └──────┬───────┘
+                        ↓
+                 ┌──────────────┐
+                 │  TRAINING    │
+                 └──────┬───────┘
+                        ↓
+                 ┌──────────────┐
+                 │    MODEL     │
+                 └──────┬───────┘
+                        ↓
+                 ┌──────────────┐
+                 │ POST-TRAINING│
+                 └──────┬───────┘
+                        ↓
+                 ┌──────────────┐
+                 │  EVALUATION  │
+                 └──────┬───────┘
+                        ↓
+                 ┌──────────────┐
+                 │   SERVING    │
+                 └──────────────┘
+```
+
+That is why the repository includes a data-collection path.
+
+The learning process should expose:
+
+```text
+Source
+  ↓
+Collection
+  ↓
+Cleaning
+  ↓
+Filtering
+  ↓
+Deduplication
+  ↓
+Tokenization
+  ↓
+Packing
+  ↓
+Training
+```
+
+Data quality, architecture, optimization and evaluation are not independent concerns.
+
+They interact.
+
+---
+
+# 🧪 Learn by experiments, not just implementations
+
+A good implementation answers:
+
+> **"Does it run?"**
+
+A good learning project also asks:
+
+> **"What happens if I change it?"**
+
+Throughout the repository, experiments should make questions observable.
+
+Examples:
+
+### Attention
+
+- What changes when causal masking is removed?
+- How does head count affect the representation?
+- How does sequence length affect computation?
+
+### Architecture
+
+- LayerNorm vs RMSNorm
+- learned positions vs RoPE
+- standard MHA vs GQA
+- standard attention vs sliding-window attention
+
+### Training
+
+- learning-rate schedules
+- batch size
+- gradient accumulation
+- initialization
+- optimizer settings
+
+### Sampling
+
+- greedy decoding
+- temperature
+- top-k
+- top-p
+- frequency penalties
+
+### Quantization
+
+- precision vs memory
+- calibration vs quality
+- weight-only vs activation-aware methods
+
+The repository should leave you with **observations**, not just files.
+
+---
+
+# 🧠 The learning contract
+
+For each major component, try to reach five levels of understanding.
+
+| Level | You should be able to... |
+|---|---|
+| **1. Intuition** | Explain what problem it solves |
+| **2. Mathematics** | Write and interpret the core equations |
+| **3. Implementation** | Build a minimal working version |
+| **4. Systems** | Explain the performance / memory trade-offs |
+| **5. Production** | Understand how real libraries implement it |
+
+For example, for attention:
+
+```text
+Why attention?
+      ↓
+Q, K, V mathematics
+      ↓
+Implement attention
+      ↓
+Measure complexity & memory
+      ↓
+Study optimized attention
+```
+
+Do not rush to level 5 while skipping levels 1–3.
+
+---
+
+# 📂 Repository structure
+
+The repository is organized so that the code follows the learning progression rather than forcing you to navigate a flat collection of experiments.
+
+```text
+.
+├── 00_explanation/
+│   └── concepts, mathematics, intuition
+│
+├── 01_papers/
+│   └── annotated research papers
+│
+├── 02_tiny_llm/
+│   ├── data/
+│   ├── tokenizers/
+│   ├── model/
+│   ├── tests/
+│   ├── training/
+│   └── user_interface/
+│
+├── 03_attention_variants/
+│
+├── 04_modern_architecture/
+│
+├── 05_scaling_up/
+│
+├── 06_mixture_of_experts/
+│
+├── 07_advanced_llm/
+│
+├── 08_post_training_datasets/
+│
+├── 09_sft/
+│
+├── 10_preference_alignment/
+│
+├── 11_evaluation/
+│
+├── 12_serving/
+│
+├── 13_quantization/
+│
+├── 14_new_trends/
+│
+├── data_collection/
+│
+├── extra/
+│   └── pytorch-basics/
+│
+├── experiments/
+├── checkpoints/
+└── tests/
+```
+
+The exact contents will evolve as implementations are added.
+
+The important invariant is:
+
+> **The folder structure should tell a learner where an idea belongs in the larger system.**
+
+---
+
+# 🛠️ Where to start
+
+## If PyTorch is already comfortable
 
 Start with:
 
-[`extra/pytorch-basics/pytorch_nn_cnn_transformer_from_scratch.ipynb`](./extra/pytorch-basics/pytorch_nn_cnn_transformer_from_scratch.ipynb)
+```text
+02_tiny_llm/
+```
 
-It is the intended on-ramp for:
+Work through the model components in order.
+
+Do not skip the small pieces because they look obvious.
+
+Understanding tensor shapes, masking, normalization and residual paths is what makes the larger model readable.
+
+## If PyTorch is not yet comfortable
+
+Start with:
+
+```text
+extra/pytorch-basics/
+```
+
+The intended progression is:
 
 ```text
 Tensors
@@ -672,153 +984,100 @@ Transformer components
 LLM architecture
 ```
 
-Then enter the main roadmap at `02_tiny_llm`.
+Then move into:
+
+```text
+02_tiny_llm/
+```
 
 ---
 
-# 🏆 Major milestones
+# 📚 Prerequisites
 
-The project is designed around progressively stronger milestones.
+You do not need to know every modern LLM technique before starting.
 
-### Milestone 1 — Understand the Transformer
+You should be comfortable with:
 
-You can explain:
+### Python
 
-- why attention exists
-- how Q, K and V interact
-- why causal masking is needed
-- how multi-head attention works
-- why normalization and residual connections matter
-- how a Transformer block fits together
+- functions and classes
+- modules and packages
+- virtual environments
+- basic debugging
 
-### Milestone 2 — Build a tiny GPT
+### Mathematics
 
-You can implement and train a small autoregressive language model and generate text from it.
+A working understanding of:
 
-### Milestone 3 — Reproduce a known architecture
+- vectors and matrices
+- matrix multiplication
+- probability
+- derivatives
+- gradients
+- basic statistics
 
-You can load and verify pretrained GPT-2 weights in the from-scratch architecture.
+### Machine learning
 
-### Milestone 4 — Modernize the architecture
+You should understand the basic idea of:
 
-You understand and can implement components such as:
+- training vs validation
+- loss functions
+- gradient descent
+- backpropagation
+- overfitting
+- optimization
 
-```text
-RoPE
-RMSNorm
-SwiGLU
-GQA
-KV-cache
-MoE
-```
+### PyTorch
 
-### Milestone 5 — Understand post-training
+You should eventually be comfortable with:
 
-You can follow the journey:
+- tensors
+- broadcasting
+- indexing
+- `nn.Module`
+- parameters
+- autograd
+- optimizers
+- datasets and dataloaders
 
-```text
-Pretrained model
-      ↓
-Post-training dataset
-      ↓
-SFT
-      ↓
-Preference data
-      ↓
-DPO / PPO / reward modeling
-      ↓
-Aligned model
-```
-
-### Milestone 6 — Measure it
-
-You can evaluate the model with automated, human and model-based signals.
-
-### Milestone 7 — Make it cheaper
-
-You understand how quantization changes:
-
-```text
-precision → memory → throughput → latency → quality
-```
-
-### Milestone 8 — Put it in production
-
-You can connect the model to an inference API and production-oriented serving tools.
+If these are not second nature yet, use the PyTorch foundations section first.
 
 ---
 
-# 🏭 Production bridge
+# 🚀 Getting started
 
-Understanding the implementation is only half the journey.
-
-The repository deliberately moves between:
-
-```text
-FIRST PRINCIPLES
-      │
-      ├── raw PyTorch tensors
-      ├── explicit equations
-      ├── small experiments
-      └── tests
-             │
-             ▼
-PRODUCTION ABSTRACTIONS
-      │
-      ├── Hugging Face
-      ├── TRL
-      ├── vLLM
-      ├── GGUF / llama.cpp
-      └── deployment infrastructure
-```
-
-The question is not:
-
-> "Should I use libraries?"
-
-**Of course you should.**
-
-The better question is:
-
-> **"Do I understand what the library is doing well enough to use it intelligently?"**
-
----
-
-# 📊 Experimentation and reproducibility
-
-Training experiments are tracked with MLflow.
+Clone the repository:
 
 ```bash
-mlflow ui --backend-store-uri ./experiments/mlruns
+git clone <your-repository-url>
+cd <your-repository>
 ```
 
-Tests can be run with:
-
-```bash
-pytest -v
-```
-
-The repository also keeps model checkpoints separate from the source tree.
-
-See [`checkpoints/README.md`](./checkpoints/README.md) for the checkpoint workflow.
-
----
-
-# ⚙️ Environment
-
-## Python environment
+Create an environment:
 
 ```bash
 python -m venv .venv
 ```
 
-Activate it according to your operating system, then:
+Activate it according to your operating system, then install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Docker
+Run the tests:
+
+```bash
+pytest -v
+```
+
+For experiments tracked with MLflow:
+
+```bash
+mlflow ui --backend-store-uri ./experiments/mlruns
+```
+
+Docker is also supported:
 
 ```bash
 docker build -t llm-from-scratch .
@@ -827,261 +1086,185 @@ docker run --gpus all -it llm-from-scratch
 
 ---
 
-# 📦 Data
+# 🧪 Reproducibility matters
 
-The repository includes a data-collection track for building pretraining material.
+A learning resource becomes much more valuable when another person can reproduce what you did.
 
-The current books module covers sources including:
+That means:
 
-- Project Gutenberg
-- Internet Archive
-- Wikipedia
+- deterministic tests where practical
+- explicit configurations
+- documented datasets
+- reproducible preprocessing
+- tracked experiments
+- clear checkpoints
+- meaningful assertions
+- numerical verification
+- no unexplained magic constants
 
-Data collection is treated as part of the learning process because model quality begins long before the first training step.
+A notebook that runs once on one machine is an experiment.
 
-```text
-SOURCE
-  ↓
-COLLECT
-  ↓
-CLEAN
-  ↓
-FILTER
-  ↓
-DEDUPLICATE
-  ↓
-TOKENIZE
-  ↓
-PACK
-  ↓
-TRAIN
-```
+A documented experiment that another learner can reproduce is a **learning resource**.
 
 ---
 
-# 🧭 A note on scale
+# 🏁 What "finished" means
 
-You do **not** need a massive GPU cluster to learn LLM engineering.
+This repository is not considered complete simply because every directory contains code.
 
-This repository intentionally starts small.
+A component should ideally move through:
 
-A tiny model can teach you:
+```text
+Idea
+ ↓
+Explanation
+ ↓
+Minimal implementation
+ ↓
+Tests
+ ↓
+Experiment
+ ↓
+Reference comparison
+ ↓
+Optimization / systems discussion
+ ↓
+Integration
+```
 
-- tensor shapes
-- attention
-- gradients
-- loss
-- optimization
-- tokenization
-- sampling
-- caching
-- quantization
+That is particularly important for educational code.
 
-The same principles eventually appear in much larger systems.
-
-The scale changes.
-
-**The underlying ideas do not disappear.**
+A 50-line implementation that you can explain completely is more valuable for learning than a 5,000-line framework component you cannot reason about.
 
 ---
 
-# 📖 How to study each module
+# 🔭 Part 2 — AI Engineering
 
-Do not treat this repository like a collection of files to finish.
+This repository focuses on understanding and building the model itself.
 
-Use each module as a mini research project.
-
-### 1. Read the explanation
-
-Understand the problem before looking at the implementation.
-
-### 2. Write the mathematics
-
-If the component has an equation, derive it.
-
-For example, attention should eventually become something you can write yourself:
+Once you have a model, another world begins:
 
 ```text
-Attention(Q, K, V)
-    = softmax(QKᵀ / √dₖ)V
+Model
+  ↓
+Inference
+  ↓
+Embeddings
+  ↓
+Retrieval
+  ↓
+RAG
+  ↓
+Tools
+  ↓
+Agents
+  ↓
+Context engineering
+  ↓
+Evaluation
+  ↓
+Observability
+  ↓
+Production systems
 ```
 
-### 3. Trace the tensors
+That is the focus of the companion **AI Engineering Roadmap**.
 
-For every major operation, ask:
+The distinction is intentional:
 
 ```text
-What is the shape?
-Why is it this shape?
-What does each dimension represent?
+PART 1
+Understand the model
+        │
+        ▼
+PART 2
+Build systems around the model
 ```
 
-### 4. Implement the smallest working version
+A strong AI engineer should understand both sides of that boundary.
 
-Avoid optimization initially.
+---
 
-Make the mechanism obvious.
+# 🌱 Why this is free
 
-### 5. Test it
+High-quality technical education should not be limited to people who can afford a degree, bootcamp, expensive course, or private mentorship.
 
-Use:
+This repository is being built as a **free public learning resource**.
 
-- shape tests
-- numerical checks
-- edge cases
-- reference comparisons
-- gradient checks where appropriate
+The aim is to make a difficult subject approachable through:
 
-### 6. Compare with the production implementation
+- clear explanations
+- working implementations
+- experiments
+- diagrams
+- tests
+- research papers
+- progressively harder systems
 
-Only after understanding the simple version.
+If you have a computer, curiosity, and the willingness to work through the material, you should be able to follow the journey.
 
-Ask:
+You do not need to begin with a billion-parameter model.
 
-> What did the production implementation optimize?
+You begin with a tensor.
 
-That question is often where the real engineering lesson begins.
+Then another tensor.
+
+Then an equation.
+
+Then a small experiment.
+
+Then a Transformer.
+
+And eventually, the black box starts opening.
 
 ---
 
 # 🤝 Contributing
 
-This is intended to be a **public learning resource**.
+This repository is intended to grow into a community learning resource.
 
-If you find:
+Contributions are welcome in the form of:
 
-- an incorrect explanation
-- a mathematical mistake
-- a broken implementation
-- a missing test
-- a clearer way to explain a concept
-- a useful paper
-- a reproducibility issue
-- a better visualization
+- bug fixes
+- mathematical corrections
+- clearer explanations
+- better tests
+- implementation improvements
+- experiments
+- diagrams
+- research-paper notes
+- reproducibility fixes
+- new learning exercises
 
-please open an issue or pull request.
+Before opening a pull request, ask:
+
+> **Will this make it easier for another person to understand the subject?**
+
+That is the standard.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
-### Good contributions are:
-
-```text
-Correct
-   +
-Reproducible
-   +
-Well-tested
-   +
-Clearly explained
-   +
-Useful to another learner
-```
-
-Notebooks should run top-to-bottom without manual patching, and outputs should be stripped before committing.
-
 ---
 
-# 🌱 The bigger vision
+# ⭐ If you find this useful
 
-This repository is more than a collection of implementations.
-
-It is an attempt to build a **free, structured path into LLM engineering** that does not require someone to already know the entire ecosystem.
-
-The long-term idea is simple:
-
-> **Turn the LLM stack from a black box into a sequence of understandable problems.**
-
-Instead of asking:
-
-> "Which framework should I learn?"
-
-you should eventually be able to ask:
-
-> "What problem is this framework solving, what abstraction does it provide, and what is happening underneath it?"
-
-That is a much more durable skill.
-
----
-
-# 🚀 Beyond this repository
-
-This project is **Part 1** of a broader learning path.
-
-Once a model exists, the next layer is AI engineering:
-
-```text
-LLM
- ↓
-Inference
- ↓
-RAG
- ↓
-Agents
- ↓
-Tool use
- ↓
-Inference optimization
- ↓
-Evaluation in applications
- ↓
-Production deployment
-```
-
-Part 2 — [`AI-EngineeringRoadmap`](../AI-EngineeringRoadmap) — continues from the model itself into the systems built around it.
-
----
-
-# 📌 Quick start
-
-```bash
-git clone <your-repository-url>
-cd <your-repository>
-
-python -m venv .venv
-pip install -r requirements.txt
-
-pytest -v
-```
-
-Then start learning:
-
-```text
-extra/pytorch-basics/
-        ↓
-02_tiny_llm/
-        ↓
-03_attention_variants/
-        ↓
-04_modern_architecture/
-        ↓
-...
-```
-
-For detailed progress:
-
-**→ [`ROADMAP.md`](./ROADMAP.md)**
-
----
-
-# ⭐ If this resource helps you
-
-This project is being built as a free resource so that the knowledge is accessible to anyone willing to learn.
-
-If it helps you understand something that previously felt impossible:
+If this project helps you understand something that previously felt like a black box:
 
 - ⭐ Star the repository
-- 🐛 Report issues
-- 💡 Suggest improvements
-- 🔬 Reproduce the experiments
-- 🤝 Contribute explanations or implementations
+- 🐛 Report an issue
+- 💡 Suggest an improvement
+- 🔬 Reproduce an experiment
+- 🤝 Contribute
 - 📢 Share it with another learner
 
-The most valuable outcome is not the star count.
+The goal is not simply to build another LLM repository.
 
-**It is another person who can now explain how an LLM works.**
+The goal is to build a **path through the complexity**.
 
 ---
 
-## License
+## 📜 License
+
+This project is released under the MIT License.
 
 See [`LICENSE`](./LICENSE).
