@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.svg" alt="LLM From Scratch — Foundations to Serving" width="100%">
+  <img src="./assets/llm-from-scratch-banner.svg" alt="LLM From Scratch — Foundations to Serving" width="100%">
 </p>
 
 <p align="center">
@@ -38,10 +38,19 @@ notebook here should leave you able to explain, not just call, the thing it
 implements.
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#fafaf5','primaryTextColor':'#1a1a1a','primaryBorderColor':'#2563eb','lineColor':'#2563eb','fontFamily':'JetBrains Mono','fontSize':'13px'}}}%%
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eff6ff','primaryTextColor':'#0f172a','primaryBorderColor':'#3b82f6','lineColor':'#3b82f6','fontFamily':'JetBrains Mono','fontSize':'15px'}}}%%
 flowchart LR
-  B["BUILD IT<br/><sub>raw PyTorch, no shortcuts</sub>"] --> C["USE IT<br/><sub>same thing via the production library</sub>"]
-  C --> N["COMPARE<br/><sub>what the abstraction buys you</sub>"]
+  classDef build fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#0f172a
+  classDef use fill:#bfdbfe,stroke:#2563eb,stroke-width:1.5px,color:#0f172a
+  classDef compare fill:#93c5fd,stroke:#1d4ed8,stroke-width:1.5px,color:#0f172a
+
+  B("<b>Build it</b><br/><sub>raw PyTorch tensors, no framework shortcuts</sub>"):::build
+  U("<b>Use it</b><br/><sub>the same thing via the production library</sub>"):::use
+  C("<b>Compare</b><br/><sub>what the abstraction actually buys you</sub>"):::compare
+
+  B ==>|"e.g. hand-rolled attention"| U
+  U ==>|"e.g. torch.nn.MultiheadAttention"| C
+  C -.->|"repeats for every module"| B
 ```
 
 ## What you'll have built by the end
@@ -62,26 +71,63 @@ flowchart LR
 Fifteen modules stack roughly in order. Architecture is the floor; serving
 and quantization are the roof. The numbering follows the standard LLM
 mastery path (architecture → pretraining → post-training → evaluation →
-quantization → new trends).
+quantization → new trends), grouped below by the eight stages tracked in
+[`ROADMAP.md`](./ROADMAP.md).
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eff6ff','primaryTextColor':'#0f172a','primaryBorderColor':'#2563eb','lineColor':'#2563eb','fontFamily':'JetBrains Mono','fontSize':'12px'}}}%%
-flowchart TB
-  E["00 Explanation"] --> P["01 Papers"]
-  P --> T["02 Tiny LLM<br/><sub>Stage 1 — Architecture</sub>"]
-  T --> AV["03 Attention Variants"]
-  AV --> MA["04 Modern Architecture"]
-  MA --> SU["05 Scaling Up<br/><sub>Stage 2 — Pretraining</sub>"]
-  SU --> MOE["06 Mixture of Experts"]
-  MOE --> ADV["07 Advanced LLM From Scratch"]
-  ADV --> PTD["08 Post-Training Datasets<br/><sub>Stage 3</sub>"]
-  PTD --> SFT["09 Instruction Fine-Tuning / SFT<br/><sub>Stage 4</sub>"]
-  SFT --> PA["10 Preference Alignment<br/><sub>Stage 5</sub>"]
-  PA --> EV["11 Evaluation<br/><sub>Stage 6</sub>"]
-  EV --> SRV["12 Serving"]
-  SRV --> Q["13 Quantization<br/><sub>Stage 7</sub>"]
-  Q --> NT["14 New Trends<br/><sub>Stage 8</sub>"]
-  NT -.-> P2["Part 2 — LLM Engineering"]
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eff6ff','primaryTextColor':'#0f172a','primaryBorderColor':'#3b82f6','lineColor':'#3b82f6','fontFamily':'JetBrains Mono','fontSize':'13px'},'flowchart':{'curve':'basis','nodeSpacing':22,'rankSpacing':55}}}%%
+flowchart LR
+  classDef s0 fill:#f8fafc,stroke:#94a3b8,color:#334155
+  classDef s1 fill:#eff6ff,stroke:#60a5fa,color:#0f172a
+  classDef s2 fill:#dbeafe,stroke:#3b82f6,color:#0f172a
+  classDef s3 fill:#bfdbfe,stroke:#2563eb,color:#0f172a
+  classDef s4 fill:#93c5fd,stroke:#1d4ed8,color:#0f172a
+  classDef s5 fill:#60a5fa,stroke:#1d4ed8,color:#0f172a
+  classDef ghost fill:none,stroke:none,color:#0f172a
+
+  subgraph G0[" "]
+    direction LR
+    E["00 · Explanation"]:::s0
+    P["01 · Papers"]:::s0
+  end
+
+  subgraph G1["Stage 1 — Architecture"]
+    direction LR
+    T["02 · Tiny LLM"]:::s1
+    AV["03 · Attention Variants"]:::s1
+    MA["04 · Modern Architecture"]:::s1
+  end
+
+  subgraph G2["Stage 2 — Pretraining"]
+    direction LR
+    SU["05 · Scaling Up"]:::s2
+    MOE["06 · Mixture of Experts"]:::s2
+    ADV["07 · Advanced LLM"]:::s2
+  end
+
+  subgraph G3["Stages 3–5 — Post-Training"]
+    direction LR
+    PTD["08 · PT Datasets"]:::s3
+    SFT["09 · SFT"]:::s3
+    PA["10 · Preference Alignment"]:::s3
+  end
+
+  subgraph G4["Stages 6–8 — Ship It"]
+    direction LR
+    EV["11 · Evaluation"]:::s4
+    SRV["12 · Serving"]:::s4
+    Q["13 · Quantization"]:::s4
+    NT["14 · New Trends"]:::s4
+  end
+
+  E --> P --> T
+  T --> AV --> MA --> SU
+  SU --> MOE --> ADV --> PTD
+  PTD --> SFT --> PA --> EV
+  EV --> SRV --> Q --> NT
+  NT -.-> PART2["Part 2 — AI Engineering Roadmap"]:::s5
+
+  class G0,G1,G2,G3,G4 ghost
 ```
 
 Skip ahead if you already know the lower layers — but if something near the
