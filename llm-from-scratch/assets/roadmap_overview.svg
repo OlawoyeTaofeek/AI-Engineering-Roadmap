@@ -1,0 +1,158 @@
+<svg viewBox="0 0 1700 620" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono','Fira Code',ui-monospace,SFMono-Regular,monospace" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo4NDZjOGJlOC05Yjc4LTRjM2MtOTA1YS05M2VhNDE1NjRmMDAAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaLwVGgqefen5869X8siMR08AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDozZjU5MDBhMi0xMmQ2LTRhZjEtYmU1OS02ODY0NTE2NDJmOWZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNonoFuSumz0C+5ofPO7G8g1wAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggfteSUgz+eZjGIY3FQCNYRhox8OvXQLAveZ/IJUyh7cekZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaGYH1YHuQwtzvwnth5FxISoAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCB7ekzj48CHencGQC9KTOkfY1m8eQMei7H84VzBjh0wemRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjPZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjg0NmM4YmU4LTliNzgtNGMzYy05MDVhLTkzZWE0MTU2NGYwMC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmIyNzg0ZGM2LTg4ZTAtNDBmNy1hNGYyLWRjYTIwMDVkMmFhNnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCB+15JSDP55mMYhjcVAI1hGGjHw69dAsC95n8glTKHtx6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggVvxCD1lu1thf2YR6j00wfgcjSAjZVhrM+kq1AHF04biiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggGKhxEknsezZi6OhoHbnzw9NHqENhlmRZJ/kPsxnFTvt0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQMNVOO7uDAt8ehDGSymgMR98fOFfOT906gDp2kGlBVdnHRyZ1p76XaJN4nDqffvl3TvNTwHLNd8oNQmCjH9Xw10=</c2pa:manifest></metadata>
+  <defs>
+    <linearGradient id="lineBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="linePurple" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#6d28d9"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1700" height="620" fill="#fdfdfb"/>
+
+  <!-- ===== HEADER STRIP ===== -->
+  <text x="850" y="42" text-anchor="middle" font-size="22" font-weight="800" fill="#0f172a" letter-spacing="1">THE ROADMAP</text>
+  <text x="850" y="64" text-anchor="middle" font-size="13" fill="#64748b">one line, two colors &#8212; ride it start to finish or transfer in wherever you already are</text>
+
+  <!-- ===== LINE 1 : PART 1 — LLM FROM SCRATCH (top, left -> right) ===== -->
+  <line x1="90" y1="180" x2="1610" y2="180" stroke="url(#lineBlue)" stroke-width="7" stroke-linecap="round"/>
+  <text x="90" y="140" font-size="15" font-weight="800" fill="#1d4ed8" letter-spacing="2">PART 1 &#8212; LLM FROM SCRATCH</text>
+
+  <!-- 15 stations, alternating label above/below -->
+  <!-- helper: stations at x = 90 + i*108.57 for i in 0..14 -->
+
+  <!-- 00 -->
+  <circle cx="90" cy="180" r="9" fill="#ffffff" stroke="#1d4ed8" stroke-width="4"/>
+  <text x="90" y="204" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">00</text>
+  <text x="90" y="218" text-anchor="middle" font-size="9.5" fill="#475569">Explain</text>
+
+  <!-- 01 -->
+  <circle cx="198" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="198" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">01</text>
+  <text x="198" y="152" text-anchor="middle" font-size="9.5" fill="#475569">Papers</text>
+
+  <!-- 02 (flagship, bigger) -->
+  <circle cx="307" cy="180" r="11" fill="#1d4ed8" stroke="#0f172a" stroke-width="1.5"/>
+  <text x="307" y="207" text-anchor="middle" font-size="11" font-weight="800" fill="#0f172a">02</text>
+  <text x="307" y="221" text-anchor="middle" font-size="10" font-weight="700" fill="#1d4ed8">Tiny LLM &#9733;</text>
+
+  <!-- 03 -->
+  <circle cx="415" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="415" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">03</text>
+  <text x="415" y="152" text-anchor="middle" font-size="9.5" fill="#475569">Attn Variants</text>
+
+  <!-- 04 -->
+  <circle cx="524" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="524" y="204" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">04</text>
+  <text x="524" y="218" text-anchor="middle" font-size="9.5" fill="#475569">Modern Arch</text>
+
+  <!-- 05 -->
+  <circle cx="632" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="632" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">05</text>
+  <text x="632" y="152" text-anchor="middle" font-size="9.5" fill="#475569">Scaling Up</text>
+
+  <!-- 06 -->
+  <circle cx="741" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="741" y="204" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">06</text>
+  <text x="741" y="218" text-anchor="middle" font-size="9.5" fill="#475569">MoE</text>
+
+  <!-- 07 -->
+  <circle cx="849" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="849" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">07</text>
+  <text x="849" y="152" text-anchor="middle" font-size="9.5" fill="#475569">Advanced LLM</text>
+
+  <!-- 08 -->
+  <circle cx="958" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="958" y="204" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">08</text>
+  <text x="958" y="218" text-anchor="middle" font-size="9.5" fill="#475569">PT Datasets</text>
+
+  <!-- 09 -->
+  <circle cx="1066" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="1066" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">09</text>
+  <text x="1066" y="152" text-anchor="middle" font-size="9.5" fill="#475569">SFT</text>
+
+  <!-- 10 -->
+  <circle cx="1175" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="1175" y="204" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">10</text>
+  <text x="1175" y="218" text-anchor="middle" font-size="9.5" fill="#475569">Pref. Align</text>
+
+  <!-- 11 -->
+  <circle cx="1283" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="1283" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">11</text>
+  <text x="1283" y="152" text-anchor="middle" font-size="9.5" fill="#475569">Eval</text>
+
+  <!-- 12 -->
+  <circle cx="1392" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="1392" y="204" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">12</text>
+  <text x="1392" y="218" text-anchor="middle" font-size="9.5" fill="#475569">Serving</text>
+
+  <!-- 13 -->
+  <circle cx="1500" cy="180" r="7" fill="#1d4ed8"/>
+  <text x="1500" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">13</text>
+  <text x="1500" y="152" text-anchor="middle" font-size="9.5" fill="#475569">Quantization</text>
+
+  <!-- 14 terminus -->
+  <circle cx="1610" cy="180" r="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="4"/>
+  <text x="1610" y="204" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">14</text>
+  <text x="1610" y="218" text-anchor="middle" font-size="9.5" fill="#475569">New Trends</text>
+
+  <!-- ===== TRANSFER CONNECTOR ===== -->
+  <line x1="1610" y1="180" x2="1610" y2="440" stroke="#94a3b8" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
+  <rect x="1578" y="292" width="64" height="36" rx="8" fill="#0f172a"/>
+  <text x="1610" y="315" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">TRANSFER</text>
+
+  <!-- ===== LINE 2 : PART 2 — LLM ENGINEERING (bottom, right -> left) ===== -->
+  <line x1="1610" y1="440" x2="200" y2="440" stroke="url(#linePurple)" stroke-width="7" stroke-linecap="round"/>
+  <text x="1610" y="400" text-anchor="end" font-size="15" font-weight="800" fill="#6d28d9" letter-spacing="2">PART 2 &#8212; LLM ENGINEERING</text>
+
+  <!-- 8 stations, right -> left, x = 1610 - i*201.4 -->
+
+  <!-- 01 -->
+  <circle cx="1610" cy="440" r="10" fill="#ffffff" stroke="#6d28d9" stroke-width="4"/>
+  <text x="1610" y="464" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4c1d95">01</text>
+  <text x="1610" y="478" text-anchor="middle" font-size="9.5" fill="#475569">RAG Foundations</text>
+
+  <!-- 02 -->
+  <circle cx="1409" cy="440" r="7" fill="#6d28d9"/>
+  <text x="1409" y="424" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4c1d95">02</text>
+  <text x="1409" y="412" text-anchor="middle" font-size="9.5" fill="#475569">Vector DBs</text>
+
+  <!-- 03 -->
+  <circle cx="1207" cy="440" r="7" fill="#6d28d9"/>
+  <text x="1207" y="464" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4c1d95">03</text>
+  <text x="1207" y="478" text-anchor="middle" font-size="9.5" fill="#475569">Advanced RAG</text>
+
+  <!-- 04 -->
+  <circle cx="1006" cy="440" r="7" fill="#6d28d9"/>
+  <text x="1006" y="424" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4c1d95">04</text>
+  <text x="1006" y="412" text-anchor="middle" font-size="9.5" fill="#475569">Agents &amp; Tools</text>
+
+  <!-- 05 -->
+  <circle cx="805" cy="440" r="7" fill="#6d28d9"/>
+  <text x="805" y="464" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4c1d95">05</text>
+  <text x="805" y="478" text-anchor="middle" font-size="9.5" fill="#475569">Multi-Agent Sys</text>
+
+  <!-- 06 -->
+  <circle cx="603" cy="440" r="7" fill="#6d28d9"/>
+  <text x="603" y="424" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4c1d95">06</text>
+  <text x="603" y="412" text-anchor="middle" font-size="9.5" fill="#475569">Inference Opt.</text>
+
+  <!-- 07 -->
+  <circle cx="402" cy="440" r="7" fill="#6d28d9"/>
+  <text x="402" y="464" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4c1d95">07</text>
+  <text x="402" y="478" text-anchor="middle" font-size="9.5" fill="#475569">LLMOps</text>
+
+  <!-- 08 terminus -->
+  <circle cx="200" cy="440" r="11" fill="#6d28d9" stroke="#0f172a" stroke-width="1.5"/>
+  <text x="200" y="467" text-anchor="middle" font-size="11" font-weight="800" fill="#0f172a">08</text>
+  <text x="200" y="481" text-anchor="middle" font-size="10" font-weight="700" fill="#6d28d9">Security &amp; Scale</text>
+
+  <!-- ===== FOOTER LEGEND ===== -->
+  <circle cx="640" cy="560" r="7" fill="#1d4ed8"/>
+  <text x="656" y="565" font-size="12" fill="#334155">Part 1 &#183; build the model</text>
+  <circle cx="880" cy="560" r="7" fill="#6d28d9"/>
+  <text x="896" y="565" font-size="12" fill="#334155">Part 2 &#183; build with the model</text>
+  <text x="850" y="600" text-anchor="middle" font-size="11" fill="#94a3b8">&#9733; = the most complete station right now &#8212; start here if you're comfortable with PyTorch</text>
+</svg>

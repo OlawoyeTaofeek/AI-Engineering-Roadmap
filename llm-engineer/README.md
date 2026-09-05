@@ -14,10 +14,11 @@ A structured, hands-on curriculum for becoming an **AI / LLM Engineer** — from
 | 2 | [Building a Vector Storage](#2--building-a-vector-storage) | Ingesting documents · Splitting documents · Embedding models · Vector databases |
 | 3 | [Retrieval Augmented Generation](#3--retrieval-augmented-generation-rag) | Orchestrators · Retrievers · Memory · Evaluation |
 | 4 | [Advanced RAG](#4--advanced-rag) | Query construction · Agents and tools · Post-processing · Program LLMs |
-| 5 | [Agents](#5--agents) | Agent fundamentals · Agent frameworks · Multi-agents |
-| 6 | [Inference Optimization](#6--inference-optimization) | Flash Attention · Key-value cache · Speculative decoding |
-| 7 | [Deploying LLMs](#7--deploying-llms) | Local deployment · Demo deployment · Server deployment · Edge deployment |
-| 8 | [Securing LLMs](#8--securing-llms) | Prompt hacking · Backdoors · Defensive measures |
+| 5 | [MultiModal ]
+| 6 | [Agents](#5--agents) | Agent fundamentals · Agent frameworks · Multi-agents |
+| 7 | [Inference Optimization](#6--inference-optimization) | Flash Attention · Key-value cache · Speculative decoding |
+| 8 | [Deploying LLMs](#7--deploying-llms) | Local deployment · Demo deployment · Server deployment · Edge deployment |
+| 9 | [Securing LLMs](#8--securing-llms) | Prompt hacking · Backdoors · Defensive measures |
 
 ---
 
