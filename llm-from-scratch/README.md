@@ -112,19 +112,32 @@ Source papers referenced throughout, with an annotated index.
 <details>
 <summary><strong>02 · Tiny LLM</strong> — Stage 1: LLM Architecture</summary>
 
-First working GPT: architecture, BPE tokenizer, sampling
-(temperature/top-k/top-p), training, pretrained-weight loading,
-classification fine-tuning.
+First working GPT, built end-to-end: data pipeline, four tokenizers,
+attention/normalization/transformer-block architecture, config-driven model
+assembly, an HF-style CausalLM wrapper, MLflow-tracked training, OpenAI
+GPT-2 (124M) pretrained-weight loading, five sampling strategies plus beam
+search, classification fine-tuning, a full `pytest` suite, and two chat UIs.
+See [`02_tiny_llm/README.md`](./02_tiny_llm/README.md) for the full writeup.
 
-| Piece | What it is |
-|---|---|
-| Self-attention → causal attention → multi-head attention | The attention stack, built up in stages |
-| `LayerNorm`, `FeedForward`, `TransformerBlock` | Core building blocks |
-| `GPTModel` | Full model assembly |
-| `GPTConfig` | Typed, validated config (dataclass, `from_pretrained`/`save_pretrained`) |
-| Text generation loop | Greedy decoding to start, sampling strategies layered on later |
-| Pretrained weight loading | Converts OpenAI's original GPT-2 TF checkpoint |
-| Classification fine-tuning | Generalized to any N-class task, not just spam/ham |
+| Stage | What it is | Where |
+|---|---|---|
+| Data | Custom `Dataset` + `DataLoader`, tokenized text sliced into overlapping context windows with a configurable stride | `data/` |
+| Tokenizers | Byte-level, character-level, word-level, and a from-scratch **BPE** tokenizer, compared side by side | `tokenizers/` |
+| Attention | Self-attention → causal (masked) attention → multi-head attention, built up in stages | `model/attention.py` |
+| Normalization | `LayerNorm` from raw mean/variance ops | `model/layer_norm.py` |
+| Transformer block | Pre-norm → MHA → residual → pre-norm → FFN → residual | `model/transformer_block.py` |
+| Config | Typed, validated `GPTConfig` dataclass with `from_pretrained`/`save_pretrained` | `model/config.py` |
+| Model assembly | Full `GPTModel`: embeddings → N transformer blocks → final norm → LM head | `model/gpt_model.py` |
+| Causal LM wrapper | HF-`GPT2LMHeadModel`-style wrapper — loss-aware forward pass + `.generate()` | `model/causal_lm.py` |
+| Training + tracking | Training loop with LR scheduling and hyperparameter sweeps, metrics logged to **MLflow** | `train.py`, `learning_rate_scheuler/`, `hyperparameter_tuning/` |
+| Pretrained weights | Converts and loads **OpenAI's original GPT-2 (124M)** TF checkpoint into the from-scratch model | `load_pretrained_weight.py`, `loading_pretrained_weight.ipynb` |
+| Decoding | Greedy, temperature scaling, top-k, top-p (nucleus), frequency penalty, and beam search — each its own function/class | `sampling.py`, `generate.py` |
+| Fine-tuning | Classification head swap, generalized to any N-class task | `finetune_classification.py` |
+| Testing | Full `pytest` suite covering every component above, plus two proof notebooks (`model/test.ipynb`, `tokenizers/tokenizers_test.ipynb`) | `tests/` |
+| UI | Chat with the trained-from-scratch model *or* the loaded GPT-2 weights, decoding params exposed as controls | `user_interface/streamlit_ui.py`, `user_interface/chainlit_ui.py` |
+
+Reproduces **GPT-2 124M**, verified against OpenAI's real weights, before
+the architecture is upgraded with RoPE/RMSNorm/GQA/MoE starting in `04`.
 
 </details>
 
